@@ -13,14 +13,13 @@ pipeline {
         			sh 'mkdir -p ~/.aws'
         			sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ~/.aws/credentials'
 				sh 'cat ~/.aws/credentials'
-				sh 'wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip && unzip terraform_0.12.18_linux_amd64.zip'
       			}
     		}
 		stage('TF Plan') {
        			steps {
         			 container('terraform') {
-        			 sh './terraform init'
-           			 sh './terraform plan -out myplan'
+        			 sh 'terraform init'
+           			 sh 'terraform plan -out myplan'
          			}
        			}
      		}
@@ -34,7 +33,7 @@ pipeline {
 		stage('TF Apply') {
       			steps {
         			container('terraform') {
-          				sh './terraform apply -input=false myplan'
+          				sh 'terraform apply -input=false myplan'
         			}
       			}
     		}
