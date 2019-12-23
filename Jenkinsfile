@@ -2,9 +2,9 @@ pipeline {
 	
 	agent { label 'jenkins-slave-1' }
 	
-	#environment {
-    	#	SVC_ACCOUNT_KEY = credentials('terraform-auth')
-  	#}  
+	// #environment {
+    	// #	SVC_ACCOUNT_KEY = credentials('terraform-auth')
+  	// #}  
 
 	stages {
 		stage('Checkout') {
