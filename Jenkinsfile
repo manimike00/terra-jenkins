@@ -1,6 +1,6 @@
 pipeline {  
 	
-	agent { label 'terraform' }
+	agent { label 'jenkins-slave-1' }
 	
 	environment {
     		SVC_ACCOUNT_KEY = credentials('terraform-auth')
