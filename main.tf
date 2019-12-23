@@ -6,7 +6,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "semmabucket"
-    key    = "./aws/credentials"
+    key    = "~/.aws/credentials"
     region = "ap-south-1"
   }
 }
