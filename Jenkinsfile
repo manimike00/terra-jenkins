@@ -1,6 +1,6 @@
 pipeline {  
 	
-	agent any  
+	agent label['terraform']
 	
 	environment {
     		SVC_ACCOUNT_KEY = credentials('terraform-auth')
@@ -32,7 +32,7 @@ pipeline {
 		stage('TF Apply') {
       			steps {
         			container('terraform') {
-          				sh terraform apply -input=false myplan'
+          				sh 'terraform apply -input=false myplan'
         			}
       			}
     		}
