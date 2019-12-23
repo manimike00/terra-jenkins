@@ -12,6 +12,7 @@ pipeline {
         			checkout scm
         			sh 'mkdir -p ~/.aws'
 				sh 'which wget'
+				sh 'which unzip'
         			sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ~/.aws/credentials'
 				sh 'cat ~/.aws/credentials'
       			}
