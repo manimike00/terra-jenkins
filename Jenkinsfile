@@ -1,6 +1,6 @@
 pipeline {  
 	
-	agent label['terraform']
+	agent { label 'terraform' }
 	
 	environment {
     		SVC_ACCOUNT_KEY = credentials('terraform-auth')
