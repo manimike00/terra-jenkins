@@ -15,10 +15,8 @@ pipeline {
     		}
 		stage('TF Plan') {
        			steps {
-        			  //container('terraform') {
         			 sh './terraform init'
            			 sh './terraform plan -out myplan'
-         		//	}
        			}
      		}
 		stage('Approval') {
@@ -30,9 +28,7 @@ pipeline {
     		}
 		stage('TF Apply') {
       			steps {
-        		//	container('terraform') {
-          				sh './terraform destroy -input=false myplan'
-        		//	}
+          				sh './terraform destroy -auto-approve'
       			}
     		}
   	}
