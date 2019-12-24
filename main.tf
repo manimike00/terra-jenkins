@@ -5,9 +5,10 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-    bucket = "semmabucket"
-    key    = "~/.aws/credentials"
-    region = "us-east-2"
+    bucket          = "terraform-statefiles-geospoc"
+    key             = "sample/key.state"
+    region          = "ap-south-1"
+    dynamodb_table  = "terraform-lockstatus-geospoc"
   }
 }
 
