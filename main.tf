@@ -17,6 +17,7 @@ module "ec2-instance" {
   source = "./module"
   name      = "demo"
   env       = "dev"
+  key       = "test"
   project   = "custom"
   ami       = "ami-0123b531fc646552f"
   type      = "t2.micro"
