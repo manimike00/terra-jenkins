@@ -7,10 +7,10 @@ data "aws_region" "current" {}
 
 terraform {
   backend "s3" {
-    bucket          = "terraform-state_files-geospoc-${data.aws_region.current.name}"
+    bucket          = "terraform-state_files-geospoc"
     key             = "sample/ec2.state"
     region          = "ap-south-1"
-    dynamodb_table  = "terraform-lockstatus-geospoc-${data.aws_region.current.name}"
+    dynamodb_table  = "terraform-lockstatus-geospoc"
   }
 }
 
