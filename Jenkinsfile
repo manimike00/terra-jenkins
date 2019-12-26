@@ -8,14 +8,12 @@ pipeline {
         			checkout scm
         			sh 'mkdir -p ~/.aws'
         			sh 'echo $SVC_ACCOUNT_KEY | base64 -d > ~/.aws/credentials'
-				sh 'wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip && unzip terraform_0.12.18_linux_amd64.zip'
-				sh './terraform --version'
       			}
     		}
 		stage('TF Plan') {
        			steps {
-        			 sh './terraform init'
-           			 sh './terraform plan -out myplan'
+        			 sh 'terraform init'
+           			 sh 'terraform plan -out myplan'
        			}
      		}
 		stage('Approval') {
@@ -27,8 +25,7 @@ pipeline {
     		}
 		stage('TF Apply') {
       			steps {
-          			 // sh './terraform apply -input=false myplan'
-          			 sh './terraform destroy --auto-approve'
+          			 sh 'terraform apply -input=false myplan'
       			}
     		}
   	}
